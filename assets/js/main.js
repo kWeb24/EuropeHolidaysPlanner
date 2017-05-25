@@ -129,4 +129,28 @@ window.onload = function() {
     }
   }
 
+  var helpLinkEl = document.getElementById('helpLink');
+  helpLinkEl.addEventListener('click', function() {
+      togglePopup('help');
+  }, false);
+
+  var statsLinkEl = document.getElementById('statsLink');
+  statsLinkEl.addEventListener('click', function() {
+      var target = statsLinkEl.getAttribute("href");
+      togglePopup('stats');
+  }, false);
+
+
+  function togglePopup(id) {
+    hidePopups();
+    var el = document.getElementById(id);
+    el.classList.add("visible");
+  }
+
+  function hidePopups() {
+    var pops = document.getElementsByClassName("visible");
+    for (var i = 0; i < pops.length; i++) {
+      pops[i].classList.remove("visible");
+    }
+  }
 };

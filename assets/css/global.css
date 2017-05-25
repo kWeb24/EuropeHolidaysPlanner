@@ -39,4 +39,7 @@ a, a:hover { color: orange; text-decoration: none; font-family: 'Lato', sans-ser
 .app .popups .popup .flags figure { width: 14.28571428571429%; margin: 0; text-align: center; float: left; margin: 5px 0; }
 .app .popups .popup .flags figure img { width: 85%; }
 .app .popups .popup .flags figure figcaption { font-size: 12px; }
+.app .popups .popup .close { position: absolute; top: 15px; right: 15px; }
+.app .popups .popup .close img { width: 15px; }
 .app .popups .popup { display: none; }
+.app .popups .popup.visible { display: block; }
