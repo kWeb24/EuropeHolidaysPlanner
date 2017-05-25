@@ -40,4 +40,3 @@ a, a:hover { color: orange; text-decoration: none; font-family: 'Lato', sans-ser
 .app .popups .popup .flags figure img { width: 85%; }
 .app .popups .popup .flags figure figcaption { font-size: 12px; }
 .app .popups .popup { display: none; }
-.app .popups #stats { display: block ;}
