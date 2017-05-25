@@ -1,0 +1,319 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Europe Holidays Planner</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Europe Holidays Planner">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    <link href="assets/css/global.css" rel="stylesheet" type="text/css">
+
+  </head>
+  <body>
+    <div class="app">
+      <div class="uibar">
+        <div class="container">
+          <div class="left">
+            EuropeHolidaysPlanner
+          </div>
+          <div class="center">
+            Hours alive: <span>0</span>
+          </div>
+          <div class="right">
+            <a href="#">Help</a> | <a href="#">Stats</a>
+          </div>
+        </div>
+      </div>
+      <div id="popups" class="popups">
+        <div id="win" class="popup success center">
+          <div class="copy">
+            <h1>Congratulations!</h1>
+            <h2>You have survived the whole journey across Europe</h2>
+            <p>
+              It's not easy.<br />
+              Look at
+              <a href="http://economicsandpeace.org/wp-content/uploads/2016/11/Global-Terrorism-Index-2016.2.pdf" target="_blank">Global Terrorism Index</a>
+              to learn more.
+            </p>
+          </div>
+          <div class="button">
+            <a href="#">Try again</a>
+          </div>
+        </div>
+        <div id="loose" class="popup fail center">
+          <div class="copy">
+            <h1>You lost</h1>
+            <h2>You died while traveling Europe.</h2>
+            <p>
+              We have a hard time.<br />
+              Look at
+              <a href="http://economicsandpeace.org/wp-content/uploads/2016/11/Global-Terrorism-Index-2016.2.pdf" target="_blank">Global Terrorism Index</a>
+              to learn more.
+            </p>
+          </div>
+          <div class="button">
+            <a href="#">Try again</a>
+          </div>
+        </div>
+        <div id="help" class="popup help">
+          <div class="copy">
+            <h1>Help</h1>
+            <p>
+              Terrorism in Europe is a serious problem. Try to visit the whole continent. The game is an implementation of a well-known sapper.
+            </p>
+            <p>
+              In case you did not know the rules:<br />
+              - You have to reveal the board areas and avoid mines.<br />
+              - The number on revealed areas indicates the number of mines in adjacent tiles.<br />
+              - Flag field marking (RMB) is protected against exposure.
+            </p>
+            <p>
+              To learn more about terrorism look at
+              <a href="http://economicsandpeace.org/wp-content/uploads/2016/11/Global-Terrorism-Index-2016.2.pdf" target="_blank">Global Terrorism Index</a>
+            </p>
+          </div>
+          <div class="button">
+            <a href="#">Play</a>
+          </div>
+        </div>
+        <div id="stats" class="popup stats center">
+          <div class="copy">
+            <h1>List of dead travelers.</h1>
+            <div class="flags">
+              <figure class="ie">
+                <img src="assets/img/flags/al.svg" alt="" />
+                <figcaption>
+                  <span class="dead">10000</span>
+                </figcaption>
+              </figure>
+              <figure class="gb">
+                <img src="assets/img/flags/gb.svg" alt="" />
+                <figcaption>
+                  <span class="dead">10000</span>
+                </figcaption>
+              </figure>
+              <figure class="no">
+                <img src="assets/img/flags/no.svg" alt="" />
+                <figcaption>
+                  <span class="dead">10000</span>
+                </figcaption>
+              </figure>
+              <figure class="se">
+                <img src="assets/img/flags/se.svg" alt="" />
+                <figcaption>
+                  <span class="dead">10000</span>
+                </figcaption>
+              </figure>
+              <figure class="fi">
+                <img src="assets/img/flags/fi.svg" alt="" />
+                <figcaption>
+                  <span class="dead">10000</span>
+                </figcaption>
+              </figure>
+              <figure class="ee">
+                <img src="assets/img/flags/ee.svg" alt="" />
+                <figcaption>
+                  <span class="dead">10000</span>
+                </figcaption>
+              </figure>
+              <figure class="lv">
+                <img src="assets/img/flags/lv.svg" alt="" />
+                <figcaption>
+                  <span class="dead">10000</span>
+                </figcaption>
+              </figure>
+              <figure class="dk">
+                <img src="assets/img/flags/dk.svg" alt="" />
+                <figcaption>
+                  <span class="dead">10000</span>
+                </figcaption>
+              </figure>
+              <figure class="nl">
+                <img src="assets/img/flags/nl.svg" alt="" />
+                <figcaption>
+                  <span class="dead">10000</span>
+                </figcaption>
+              </figure>
+              <figure class="be">
+                <img src="assets/img/flags/be.svg" alt="" />
+                <figcaption>
+                  <span class="dead">10000</span>
+                </figcaption>
+              </figure>
+              <figure class="fr">
+                <img src="assets/img/flags/fr.svg" alt="" />
+                <figcaption>
+                  <span class="dead">10000</span>
+                </figcaption>
+              </figure>
+              <figure class="es">
+                <img src="assets/img/flags/es.svg" alt="" />
+                <figcaption>
+                  <span class="dead">10000</span>
+                </figcaption>
+              </figure>
+              <figure class="pt">
+                <img src="assets/img/flags/pt.svg" alt="" />
+                <figcaption>
+                  <span class="dead">10000</span>
+                </figcaption>
+              </figure>
+              <figure class="it">
+                <img src="assets/img/flags/it.svg" alt="" />
+                <figcaption>
+                  <span class="dead">10000</span>
+                </figcaption>
+              </figure>
+              <figure class="gr">
+                <img src="assets/img/flags/gr.svg" alt="" />
+                <figcaption>
+                  <span class="dead">10000</span>
+                </figcaption>
+              </figure>
+              <figure class="al">
+                <img src="assets/img/flags/al.svg" alt="" />
+                <figcaption>
+                  <span class="dead">10000</span>
+                </figcaption>
+              </figure>
+              <figure class="mk">
+                <img src="assets/img/flags/mk.svg" alt="" />
+                <figcaption>
+                  <span class="dead">10000</span>
+                </figcaption>
+              </figure>
+              <figure class="bg">
+                <img src="assets/img/flags/bg.svg" alt="" />
+                <figcaption>
+                  <span class="dead">10000</span>
+                </figcaption>
+              </figure>
+              <figure class="me">
+                <img src="assets/img/flags/me.svg" alt="" />
+                <figcaption>
+                  <span class="dead">10000</span>
+                </figcaption>
+              </figure>
+              <figure class="ks">
+                <img src="assets/img/flags/ks.png" alt="" />
+                <figcaption>
+                  <span class="dead">10000</span>
+                </figcaption>
+              </figure>
+              <figure class="ba">
+                <img src="assets/img/flags/ba.svg" alt="" />
+                <figcaption>
+                  <span class="dead">10000</span>
+                </figcaption>
+              </figure>
+              <figure class="rs">
+                <img src="assets/img/flags/rs.svg" alt="" />
+                <figcaption>
+                  <span class="dead">10000</span>
+                </figcaption>
+              </figure>
+              <figure class="hr">
+                <img src="assets/img/flags/hr.svg" alt="" />
+                <figcaption>
+                  <span class="dead">10000</span>
+                </figcaption>
+              </figure>
+              <figure class="si">
+                <img src="assets/img/flags/si.svg" alt="" />
+                <figcaption>
+                  <span class="dead">10000</span>
+                </figcaption>
+              </figure>
+              <figure class="hu">
+                <img src="assets/img/flags/hu.svg" alt="" />
+                <figcaption>
+                  <span class="dead">10000</span>
+                </figcaption>
+              </figure>
+              <figure class="ro">
+                <img src="assets/img/flags/ro.svg" alt="" />
+                <figcaption>
+                  <span class="dead">10000</span>
+                </figcaption>
+              </figure>
+              <figure class="ch">
+                <img src="assets/img/flags/ch.svg" alt="" />
+                <figcaption>
+                  <span class="dead">10000</span>
+                </figcaption>
+              </figure>
+              <figure class="de">
+                <img src="assets/img/flags/de.svg" alt="" />
+                <figcaption>
+                  <span class="dead">10000</span>
+                </figcaption>
+              </figure>
+              <figure class="at">
+                <img src="assets/img/flags/at.svg" alt="" />
+                <figcaption>
+                  <span class="dead">10000</span>
+                </figcaption>
+              </figure>
+              <figure class="md">
+                <img src="assets/img/flags/md.svg" alt="" />
+                <figcaption>
+                  <span class="dead">10000</span>
+                </figcaption>
+              </figure>
+              <figure class="ua">
+                <img src="assets/img/flags/ua.svg" alt="" />
+                <figcaption>
+                  <span class="dead">10000</span>
+                </figcaption>
+              </figure>
+              <figure class="by">
+                <img src="assets/img/flags/by.svg" alt="" />
+                <figcaption>
+                  <span class="dead">10000</span>
+                </figcaption>
+              </figure>
+              <figure class="cz">
+                <img src="assets/img/flags/cz.svg" alt="" />
+                <figcaption>
+                  <span class="dead">10000</span>
+                </figcaption>
+              </figure>
+              <figure class="sk">
+                <img src="assets/img/flags/sk.svg" alt="" />
+                <figcaption>
+                  <span class="dead">10000</span>
+                </figcaption>
+              </figure>
+              <figure class="pl">
+                <img src="assets/img/flags/pl.svg" alt="" />
+                <figcaption>
+                  <span class="dead">10000</span>
+                </figcaption>
+              </figure>
+            </div>
+            <p>
+              To learn more about terrorism look at
+              <a href="http://economicsandpeace.org/wp-content/uploads/2016/11/Global-Terrorism-Index-2016.2.pdf" target="_blank">Global Terrorism Index</a>
+            </p>
+          </div>
+          <div class="button">
+            <a href="#">Play</a>
+          </div>
+        </div>
+      </div>
+      <div id="game" class="game">
+      </div>
+    </div>
+
+    <script type="text/javascript" src="assets/js/phaser.min.js"></script>
+    <script type="text/javascript" src="assets/js/mapping.js"></script>
+    <script type="text/javascript" src="assets/js/hexagon.js"></script>
+    <script type="text/javascript" src="assets/js/main.js"></script>
+
+    <!--  Credit this map if used -->
+    <!-- <a href="http://www.freepik.com/free-vector/completed-europe-map_1106023.htm">Designed by Freepik</a> -->
+    <!--  -->
+
+  </body>
+</html>
