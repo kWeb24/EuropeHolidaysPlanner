@@ -65,7 +65,7 @@ Hex.prototype = Object.create(Phaser.Sprite.prototype);
 Hex.prototype.constructor = Hex;
 
 Hex.prototype.update = function() {
-  if (this.input.pointerOver() && !this.game.input.activePointer.withinGame) {
+  if ((this.input.pointerOver() && !this.game.input.activePointer.withinGame) || (this.game.input.activePointer.middleButton.isDown)) {
     this.loadTexture('tile-' + this.currentSpriteIndex);
   }
 };
