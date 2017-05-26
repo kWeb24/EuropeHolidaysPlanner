@@ -16,7 +16,6 @@ Hex = function (game, hexagonOptions) {
 
   function hexHover(item) {
     item.loadTexture('tile-marker');
-    console.log(item.hasBomb);
   }
 
   function hexClick(item, pointer) {
@@ -26,7 +25,6 @@ Hex = function (game, hexagonOptions) {
 
     if (pointer.button == 2) {
         updateTexture(item, item.currentSpriteIndex + 1);
-        //console.log("'t" + item.hexIndex.index + "': { countryid: 36, tiletype: 1, name: 'Poland', riskFactor: 0 },");
     }
   }
 
@@ -65,3 +63,9 @@ Hex = function (game, hexagonOptions) {
 
 Hex.prototype = Object.create(Phaser.Sprite.prototype);
 Hex.prototype.constructor = Hex;
+
+Hex.prototype.update = function() {
+  if (this.input.pointerOver() && !this.game.input.activePointer.withinGame) {
+    this.loadTexture('tile-' + this.currentSpriteIndex);
+  }
+};
