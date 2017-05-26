@@ -43,6 +43,7 @@ window.onload = function() {
     game.load.image("point-3", "assets/img/point-3.png");
     game.load.image("point-4", "assets/img/point-4.png");
     game.load.image("point-5", "assets/img/point-5.png");
+    game.load.image("empty", "assets/img/hexagon-empty.png");
 	}
 
 	function onCreate() {
@@ -54,7 +55,7 @@ window.onload = function() {
     bgmap.anchor.setTo(0.5);
     bgmap.x = game.world.centerX;
     bgmap.y = game.world.centerY;
-
+    
     createHexMap();
 	}
 
