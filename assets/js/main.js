@@ -153,4 +153,9 @@ window.onload = function() {
       pops[i].classList.remove("visible");
     }
   }
+
+  var close = document.getElementsByClassName("close-link");
+  for (var i = 0; i < close.length; i++) {
+    close[i].addEventListener('click', function() { hidePopups(); });
+  }
 };
