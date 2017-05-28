@@ -24,10 +24,8 @@ window.onload = function() {
     }
   };
 
-	var columns = [Math.ceil(config.gridSize.width / 2), Math.floor(config.gridSize.width / 2)];
-
-  var hexagonGroup;
-  var hexagonGroupOld;
+  var hexMap = null;
+  var hexMapOldPos = null;
 
   var bgmap;
   var bgmapold;
@@ -55,55 +53,13 @@ window.onload = function() {
     bgmap.anchor.setTo(0.5);
     bgmap.x = game.world.centerX;
     bgmap.y = game.world.centerY;
-    
-    createHexMap();
+
+    hexMap = new HexMap(game, config);
+
 	}
 
   function render() {
     dragListener(game);
-  }
-
-  function createHexMap() {
-    hexagonGroup = game.add.group();
-    var tileId = 0;
-    for (var i = 0; i < config.gridSize.height / 2; i ++) {
-			for (var j = 0; j < config.gridSize.width; j ++) {
-				if (config.gridSize.height % 2 === 0 || i + 1 < config.gridSize.height / 2 || j % 2 === 0) {
-          var hex = createHex(i, j, tileId);
-          tileId += 1;
-					hexagonGroup.add(hex);
-				}
-			}
-		}
-		hexagonGroup.x = (game.width - config.hexSize.width * Math.ceil(config.gridSize.width / 2)) / 2;
-    if (config.gridSize.width % 2 === 0){
-      hexagonGroup.x -= config.hexSize.width / 4;
-    }
-		hexagonGroup.y = (game.height - Math.ceil(config.gridSize.height / 2) * config.hexSize.height - Math.floor(config.gridSize.height / 2) * config.hexSize.height / 2) / 2;
-    if (config.gridSize.height % 2 === 0){
-      hexagonGroup.y -= config.hexSize.height / 8;
-    }
-  }
-
-  function createHex(i, j, tileId) {
-    var hexagonOptions = {
-      index: {
-        id: tileId,
-        x: i,
-        y: j
-      },
-      pos: {
-        x: config.hexSize.width * j / 2,
-        y: config.hexSize.height * i * 1.5 + (config.hexSize.height / 4 * 3) * (j % 2)
-      },
-      size: {
-        width: config.hexSize.width,
-        height: config.hexSize.height
-      }
-    };
-
-    var hexagon = new Hex(game, hexagonOptions);
-    return hexagon;
   }
 
   function dragListener() {
@@ -116,17 +72,17 @@ window.onload = function() {
       var bgX = bgmapold.x + move.x;
       if (bgX > config.drag.min.x && bgX < config.drag.max.x) {
         bgmap.x = bgmapold.x + move.x;
-        hexagonGroup.x = hexagonGroupOld.x + move.x;
+        hexMap.x = hexMapOldPos.x + move.x;
       }
 
       var bgY = bgmapold.y + move.y;
       if (bgY > config.drag.min.y && bgY < config.drag.max.y) {
         bgmap.y = bgmapold.y + move.y;
-        hexagonGroup.y = hexagonGroupOld.y + move.y;
+        hexMap.y = hexMapOldPos.y + move.y;
       }
     } else {
       bgmapold = { x: bgmap.x, y: bgmap.y };
-      hexagonGroupOld = { x: hexagonGroup.x, y: hexagonGroup.y };
+      hexMapOldPos = { x: hexMap.x, y: hexMap.y };
     }
   }
 
