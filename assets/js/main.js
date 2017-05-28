@@ -27,8 +27,8 @@ window.onload = function() {
   var hexMap = null;
   var hexMapOldPos = null;
 
-  var bgmap;
-  var bgmapold;
+  var bgMap = null;
+  var bgMapOldPos = null;
 
   createPopupEvents();
 
@@ -51,13 +51,12 @@ window.onload = function() {
 		game.stage.backgroundColor = "#b7dbef";
     game.input.mouse.capture = true;
 
-    bgmap = game.add.sprite(game.width, game.height, 'map-lg');
-    bgmap.anchor.setTo(0.5);
-    bgmap.x = game.world.centerX;
-    bgmap.y = game.world.centerY;
+    bgMap = game.add.sprite(game.width, game.height, 'map-lg');
+    bgMap.anchor.setTo(0.5);
+    bgMap.x = game.world.centerX;
+    bgMap.y = game.world.centerY;
 
     hexMap = new HexMap(game, config);
-
 	}
 
   function render() {
@@ -71,19 +70,19 @@ window.onload = function() {
         y: game.input.activePointer.position.y - game.input.activePointer.positionDown.y
       };
 
-      var bgX = bgmapold.x + move.x;
+      var bgX = bgMapOldPos.x + move.x;
       if (bgX > config.drag.min.x && bgX < config.drag.max.x) {
-        bgmap.x = bgmapold.x + move.x;
+        bgMap.x = bgMapOldPos.x + move.x;
         hexMap.x = hexMapOldPos.x + move.x;
       }
 
-      var bgY = bgmapold.y + move.y;
+      var bgY = bgMapOldPos.y + move.y;
       if (bgY > config.drag.min.y && bgY < config.drag.max.y) {
-        bgmap.y = bgmapold.y + move.y;
+        bgMap.y = bgMapOldPos.y + move.y;
         hexMap.y = hexMapOldPos.y + move.y;
       }
     } else {
-      bgmapold = { x: bgmap.x, y: bgmap.y };
+      bgmapold = { x: bgMap.x, y: bgMap.y };
       hexMapOldPos = { x: hexMap.x, y: hexMap.y };
     }
   }
