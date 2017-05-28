@@ -8,7 +8,13 @@ function createPopupEvents() {
   statsLinkEl.addEventListener('click', function() {
     var target = statsLinkEl.getAttribute("href");
     togglePopup('stats');
-  }, false);  
+  }, false);
+
+  var supportLinkEl = document.getElementById('supportLink');
+  supportLinkEl.addEventListener('click', function() {
+    var target = supportLinkEl.getAttribute("href");
+    togglePopup('support');
+  }, false);
 }
 
 function togglePopup(id) {
