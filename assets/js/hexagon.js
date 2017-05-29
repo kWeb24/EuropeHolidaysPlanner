@@ -25,11 +25,10 @@ Hex = function (game, hexmap, hexagonOptions) {
   function hexClick(self, pointer) {
     if (pointer.button === 0) {
       if (self.hasBomb) {
-        self.loadTexture('explosion');
+        self.reveal(0);
       } else {
-        self.loadTexture('empty');
+        self.hexMap.revealAdjacentTiles(self.hexIndex);        
       }
-      self.isLocked = true;
     }
 
     if (pointer.button == 2) {
@@ -81,4 +80,17 @@ Hex.prototype.update = function() {
       this.loadTexture('tile-' + this.currentSpriteIndex);
     }
   }
+};
+
+Hex.prototype.reveal = function(points) {
+  if (this.hasBomb) {
+    this.loadTexture('explosion');
+  } else {
+    if (points > 0) {
+      this.loadTexture('point-' + points);
+    } else {
+      this.loadTexture('empty');
+    }
+  }
+  this.isLocked = true;
 };

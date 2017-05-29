@@ -1,6 +1,9 @@
 HexMap = function (game, config) {
   Phaser.Group.call(this, game);
   this.config = config;
+  this.tileCheckList = [];
+  this.tileCheckedList = [];
+
   createHexMap(this);
 
   function createHexMap(self) {
@@ -41,10 +44,118 @@ HexMap = function (game, config) {
       }
     };
 
-    var hexagon = new Hex(game, hexagonOptions);
+    var hexagon = new Hex(game, self, hexagonOptions);
     return hexagon;
   }
 };
 
 HexMap.prototype = Object.create(Phaser.Group.prototype);
 HexMap.prototype.constructor = HexMap;
+
+HexMap.prototype.revealAdjacentTiles = function(hex) {
+  var self = this;
+  var adjecentTilesIndexes = calcAdjecent(hex);
+  var tiles = [];
+  var points = 0;
+  var selectedTile = self.children[hex.index];
+
+  adjecentTilesIndexes.forEach(function(tileId) {
+    var tile = self.children[tileId];
+    if (tile.hasBomb) {
+      points += 1;
+    }
+    tiles.push(tile);
+  });
+
+  selectedTile.reveal(points);
+
+  self.addToChecklist(tiles, points);
+  self.updateChecklist(selectedTile);
+};
+
+HexMap.prototype.addToChecklist = function(tiles, points) {
+  var self = this;
+  if (points === 0) {
+    tiles.forEach(function(tile) {
+      if (self.tileCheckList.indexOf(tile) == -1 && self.tileCheckedList.indexOf(tile) == -1 && tile.hexInfo.tiletype !== 0) {
+        self.tileCheckList.push(tile);
+      }
+    });
+  }
+};
+
+HexMap.prototype.updateChecklist = function(selectedTile) {
+  var self = this;
+  self.tileCheckedList.push(selectedTile);
+  self.tileCheckList.splice(self.tileCheckList.indexOf(selectedTile), 1);
+
+  if (self.tileCheckList.length > 0) {
+    var next = self.tileCheckList[0];
+    self.revealAdjacentTiles(next.hexIndex);
+  } else {
+    self.tileCheckList = [];
+    self.tileCheckedList = [];
+  }
+};
+
+function calcAdjecent(hex) {
+  var result = null;
+  if (hex.x % 2 === 0) {
+    result = calcEvenRow(hex);
+  } else {
+    result = calcOddRow(hex);
+  }
+  return result;
+}
+
+function calcEvenRow(hex) {
+  var result = null;
+  if (hex.index % 2 === 0) {
+    //pp
+    result = [
+      hex.index - 206,
+      hex.index - 204,
+      hex.index - 2,
+      hex.index - 1,
+      hex.index + 1,
+      hex.index + 2
+    ];
+  } else {
+    //pn
+    result = [
+      hex.index - 2,
+      hex.index - 1,
+      hex.index + 1,
+      hex.index + 2,
+      hex.index + 204,
+      hex.index + 206
+    ];
+  }
+  return result;
+}
+
+function calcOddRow(hex) {
+  var result = null;
+  if (hex.index % 2 === 0) {
+    //np
+    result = [
+      hex.index - 2,
+      hex.index - 1,
+      hex.index + 1,
+      hex.index + 2,
+      hex.index + 204,
+      hex.index + 206
+    ];
+  } else {
+    //nn
+    result = [
+      hex.index - 206,
+      hex.index - 204,
+      hex.index - 2,
+      hex.index - 1,
+      hex.index + 1,
+      hex.index + 2
+    ];
+  }
+  return result;
+}
