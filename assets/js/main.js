@@ -82,7 +82,7 @@ window.onload = function() {
         hexMap.y = hexMapOldPos.y + move.y;
       }
     } else {
-      bgmapold = { x: bgMap.x, y: bgMap.y };
+      bgMapOldPos = { x: bgMap.x, y: bgMap.y };
       hexMapOldPos = { x: hexMap.x, y: hexMap.y };
     }
   }
