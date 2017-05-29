@@ -1,4 +1,4 @@
-Hex = function (game, hexagonOptions) {
+Hex = function (game, hexmap, hexagonOptions) {
   Phaser.Sprite.call(this, game, hexagonOptions.pos.x, hexagonOptions.pos.y, 'tile-0');
 
   this.inputEnabled = true;
@@ -9,45 +9,56 @@ Hex = function (game, hexagonOptions) {
   this.hexIndex = { index: hexagonOptions.index.id, x: hexagonOptions.index.x, y: hexagonOptions.index.y };
   this.hexSize = { width: hexagonOptions.size.width, height: hexagonOptions.size.height };
   this.hexInfo = { countryid: 0, tiletype: 0, name: '0', riskFactor: 0 };
+  this.hexMap = hexmap;
 
   initTextureFromMapping(this);
   this.currentSpriteIndex = 0;
   this.hasBomb = shouldHaveBomb(this);
+  this.isLocked = false;
 
-  function hexHover(item) {
-    item.loadTexture('tile-marker');
+  function hexHover(self) {
+    if (!self.isLocked) {
+      self.loadTexture('tile-marker');
+    }
   }
 
-  function hexClick(item, pointer) {
+  function hexClick(self, pointer) {
     if (pointer.button === 0) {
-        item.loadTexture('explosion');
+      if (self.hasBomb) {
+        self.loadTexture('explosion');
+      } else {
+        self.loadTexture('empty');
+      }
+      self.isLocked = true;
     }
 
     if (pointer.button == 2) {
-        updateTexture(item, item.currentSpriteIndex + 1);
+        updateTexture(self, self.currentSpriteIndex + 1);
     }
   }
 
-  function restoreTexture(item) {
-    item.loadTexture('tile-' + item.currentSpriteIndex);
+  function restoreTexture(self) {
+    if (!self.isLocked) {
+      self.loadTexture('tile-' + self.currentSpriteIndex);
+    }
   }
 
-  function updateTexture(item, texId) {
+  function updateTexture(self, texId) {
     var id = texId;
     if (texId > 1) id = 0;
     if (texId < 0) id = 1;
-    item.currentSpriteIndex = id;
-    item.loadTexture('tile-' + id);
+    self.currentSpriteIndex = id;
+    self.loadTexture('tile-' + id);
   }
 
-  function initTextureFromMapping(item) {
-    var id = "t" + item.hexIndex.index;
+  function initTextureFromMapping(self) {
+    var id = "t" + self.hexIndex.index;
     var tile = mapping.tile[id];
     if(tile !== undefined) {
-      item.hexInfo = tile;
-      item.hexInfo.riskFactor = 100 * riskFactor[tile.countryid - 1];
+      self.hexInfo = tile;
+      self.hexInfo.riskFactor = 100 * riskFactor[tile.countryid - 1];
     } else {
-      item.hexInfo = {
+      self.hexInfo = {
         countryid: 0,
         tiletype: 0,
         name: 'Ocean',
@@ -56,8 +67,8 @@ Hex = function (game, hexagonOptions) {
     }
   }
 
-  function shouldHaveBomb(item) {
-    return (Math.floor((Math.random() * 100) + 1) <= item.hexInfo.riskFactor) ? true : false;
+  function shouldHaveBomb(self) {
+    return (Math.floor((Math.random() * 100) + 1) <= self.hexInfo.riskFactor) ? true : false;
   }
 };
 
@@ -65,7 +76,9 @@ Hex.prototype = Object.create(Phaser.Sprite.prototype);
 Hex.prototype.constructor = Hex;
 
 Hex.prototype.update = function() {
-  if ((this.input.pointerOver() && !this.game.input.activePointer.withinGame) || (this.game.input.activePointer.middleButton.isDown)) {
-    this.loadTexture('tile-' + this.currentSpriteIndex);
+  if (!this.isLocked) {
+    if ((this.input.pointerOver() && !this.game.input.activePointer.withinGame) || (this.game.input.activePointer.middleButton.isDown)) {
+      this.loadTexture('tile-' + this.currentSpriteIndex);
+    }
   }
 };
