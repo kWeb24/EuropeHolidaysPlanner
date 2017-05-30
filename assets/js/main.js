@@ -1,6 +1,6 @@
 window.onload = function() {
   fireworks.setCanvasSize();
-  
+
   var canvasSize = {
     width: document.getElementById('game').getBoundingClientRect().width,
     height: document.getElementById('game').getBoundingClientRect().height
@@ -14,6 +14,7 @@ window.onload = function() {
     {
       preload: onPreload,
       create: onCreate,
+      update: update,
       render: render
     });
 
@@ -33,7 +34,7 @@ window.onload = function() {
   var bgMapOldPos = null;
 
   //var GameState = new GameState();
-
+var cursors;
   createPopupEvents();
 
 	function onPreload() {
@@ -55,17 +56,41 @@ window.onload = function() {
     game.canvas.oncontextmenu = function (e) { e.preventDefault(); };
 		game.stage.backgroundColor = "#b7dbef";
     game.input.mouse.capture = true;
-
-    bgMap = game.add.sprite(game.width, game.height, 'map-lg');
+    bgMap = game.add.image(game.width, game.height, 'map-lg');
     bgMap.anchor.setTo(0.5);
     bgMap.x = game.world.centerX;
     bgMap.y = game.world.centerY;
 
     hexMap = new HexMap(game, config);
+    cursors = game.input.keyboard.createCursorKeys();
+    game.world.setBounds(-564, -760, 2500, 2128);
+    game.time.advancedTiming = true;
 	}
 
   function render() {
-    dragListener(game);
+    //dragListener(game);
+  //  game.debug.cameraInfo(game.camera, 32, 32);
+  game.debug.text(game.time.fps, 32, 32, '#FFFFFF');
+  }
+
+  function update() {
+    if (cursors.up.isDown)
+    {
+        game.camera.y -= 8;
+    }
+    else if (cursors.down.isDown)
+    {
+        game.camera.y += 8;
+    }
+
+    if (cursors.left.isDown)
+    {
+        game.camera.x -= 8;
+    }
+    else if (cursors.right.isDown)
+    {
+        game.camera.x += 8;
+    }
   }
 
   function dragListener() {
