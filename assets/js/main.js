@@ -30,7 +30,7 @@ window.onload = function() {
   var bgMap = null;
   var inputs = null;
 
-  var gameState = new GameState();
+  var gameState = new GameState(game);
 
   createPopupEvents();
 

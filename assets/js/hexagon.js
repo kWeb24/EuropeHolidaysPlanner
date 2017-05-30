@@ -114,6 +114,7 @@ Hex.prototype.update = function() {
 Hex.prototype.reveal = function(points) {
   if (this.hasBomb) {
     this.loadTexture('explosion');
+    this.hexMap.gameState.gameOver(this.hexInfo.name);
   } else {
     if (points > 0) {
       this.loadTexture('point-' + points);

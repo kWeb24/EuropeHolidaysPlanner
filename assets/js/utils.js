@@ -17,10 +17,13 @@ function createPopupEvents() {
   }, false);
 }
 
+
 function togglePopup(id) {
   hidePopups();
   var el = document.getElementById(id);
+  var popContainer = document.getElementById('popups');
   el.classList.add("visible");
+  popContainer.classList.add("visible");
 }
 
 function hidePopups() {
