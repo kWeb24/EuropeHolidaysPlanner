@@ -22,7 +22,7 @@ window.onload = function() {
     hexSize: { width: 24, height: 26 },
     gridSize: { width: 205, height: 110 },
     drag: {
-      maxSpeed: 20
+      maxSpeed: 25
     }
   };
 
