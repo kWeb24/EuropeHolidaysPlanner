@@ -1,11 +1,16 @@
 GameState = function (game) {
   this.game = game;
+  this.hexMap = null;
   this.isPlaying = true;
   this.points = 0;
 };
 
 GameState.prototype = Object.create(GameState);
 GameState.prototype.constructor = GameState;
+
+GameState.prototype.setHexMap = function(hexMap) {
+  this.hexMap = hexMap;
+};
 
 GameState.prototype.updatePoints = function(points) {
   var self = this;
@@ -28,4 +33,13 @@ GameState.prototype.gameOver = function(country) {
 GameState.prototype.pause = function() {
   this.game.paused = true;
   this.game.lockRender = true;
+};
+
+GameState.prototype.reset = function() {
+  this.points = 0;
+  this.updateUiCounter(this.points);
+  this.hexMap.reset();
+  this.game.paused = false;
+  this.game.lockRender = false;
+  hidePopups();
 };

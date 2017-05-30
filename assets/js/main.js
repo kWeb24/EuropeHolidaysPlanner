@@ -30,7 +30,7 @@ window.onload = function() {
   var bgMap = null;
   var inputs = null;
 
-  var gameState = new GameState(game);
+  var gameState = null;
 
   createPopupEvents();
 
@@ -58,6 +58,7 @@ window.onload = function() {
     bgMap.x = game.world.centerX;
     bgMap.y = game.world.centerY;
 
+    gameState = new GameState(game);
     hexMap = new HexMap(game, config, gameState);
     inputs = game.input.keyboard.createCursorKeys();
     game.world.setBounds(-564, -760, 2500, 2128);
@@ -100,5 +101,10 @@ window.onload = function() {
 
     game.camera.x += move.x;
     game.camera.y += move.y;
+  }
+
+  var resetButton = document.getElementsByClassName("reset");
+  for (var i = 0; i < resetButton.length; i++) {
+    resetButton[i].addEventListener('click', function() { gameState.reset(); });
   }
 };

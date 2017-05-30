@@ -6,6 +6,7 @@ HexMap = function (game, config, gameState) {
   this.gameState = gameState;
 
   createHexMap(this);
+  this.gameState.setHexMap(this);
 
   function createHexMap(self) {
     var tileId = 0;
@@ -54,6 +55,12 @@ HexMap = function (game, config, gameState) {
 
 HexMap.prototype = Object.create(Phaser.Group.prototype);
 HexMap.prototype.constructor = HexMap;
+
+HexMap.prototype.reset = function() {
+  this.forEach(function(tile) {
+    tile.reset();
+  });
+};
 
 HexMap.prototype.revealAdjacentTiles = function(hex) {
   var self = this;

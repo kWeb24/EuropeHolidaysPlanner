@@ -112,6 +112,7 @@ Hex.prototype.update = function() {
 };
 
 Hex.prototype.reveal = function(points) {
+  this.isRevealed = true;
   if (this.hasBomb) {
     this.loadTexture('explosion');
     this.hexMap.gameState.gameOver(this.hexInfo.name);
@@ -126,5 +127,18 @@ Hex.prototype.reveal = function(points) {
       this.hexMap.gameState.updatePoints(1);
     }
   }
-  this.isRevealed = true;
+};
+
+Hex.prototype.reset = function() {
+  if (this.hexInfo.tiletype !== 0) {
+    this.hasBomb = (Math.floor((Math.random() * 100) + 1) <= this.hexInfo.riskFactor) ? true : false;
+    this.currentSpriteIndex = 0;
+    this.isRevealed = false;
+    this.isFlagged = false;
+    this.hovered = false;
+    this.alive = true;
+    this.renderable = true;
+    this.visible = true;
+    this.loadTexture('tile-0');
+  }
 };
