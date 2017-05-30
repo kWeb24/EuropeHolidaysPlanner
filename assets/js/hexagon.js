@@ -53,11 +53,13 @@ Hex = function (game, hexmap, hexagonOptions) {
     if (id === 0) {
       self.loadTexture('tile-1');
       self.isFlagged = true;
+      self.currentSpriteIndex = 1;
     } else {
       self.loadTexture('tile-0');
       self.isFlagged = false;
+      self.currentSpriteIndex = 0;
     }
-    self.currentSpriteIndex = id;
+
   }
 
   function initTextureFromMapping(self) {
@@ -65,7 +67,7 @@ Hex = function (game, hexmap, hexagonOptions) {
     var tile = mapping.tile[id];
     if(tile !== undefined) {
       self.hexInfo = tile;
-      self.hexInfo.riskFactor = 100 * riskFactor[tile.countryid - 1];
+      self.hexInfo.riskFactor = (100 * riskFactor[tile.countryid - 1]) / 2;
     } else {
       self.hexInfo = {
         countryid: 0,
