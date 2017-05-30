@@ -77,7 +77,7 @@ HexMap.prototype.addToChecklist = function(tiles, points) {
   var self = this;
   if (points === 0) {
     tiles.forEach(function(tile) {
-      if (self.tileCheckList.indexOf(tile) == -1 && self.tileCheckedList.indexOf(tile) == -1 && tile.hexInfo.tiletype !== 0) {
+      if (self.tileCheckList.indexOf(tile) == -1 && self.tileCheckedList.indexOf(tile) == -1 && tile.hexInfo.tiletype !== 0 && !tile.isRevealed && !tile.isFlagged) {
         self.tileCheckList.push(tile);
       }
     });

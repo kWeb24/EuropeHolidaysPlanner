@@ -14,40 +14,47 @@ Hex = function (game, hexmap, hexagonOptions) {
   initTextureFromMapping(this);
   this.currentSpriteIndex = 0;
   this.hasBomb = shouldHaveBomb(this);
-  this.isLocked = false;
+  this.isRevealed = false;
+  this.isFlagged = false;
 
   function hexHover(self) {
-    if (!self.isLocked) {
+    if (!self.isRevealed && !self.isFlagged) {
       self.loadTexture('tile-marker');
     }
   }
 
   function hexClick(self, pointer) {
-    if (pointer.button === 0) {
+    if (pointer.button === 0 && !self.isFlagged && !self.isRevealed) {
       if (self.hasBomb) {
         self.reveal(0);
       } else {
-        self.hexMap.revealAdjacentTiles(self.hexIndex);        
+        self.hexMap.revealAdjacentTiles(self.hexIndex);
       }
     }
 
     if (pointer.button == 2) {
-        updateTexture(self, self.currentSpriteIndex + 1);
+      if (!self.isRevealed) {
+        updateTexture(self);
+      }
     }
   }
 
   function restoreTexture(self) {
-    if (!self.isLocked) {
+    if (!self.isRevealed && !self.isFlagged) {
       self.loadTexture('tile-' + self.currentSpriteIndex);
     }
   }
 
-  function updateTexture(self, texId) {
-    var id = texId;
-    if (texId > 1) id = 0;
-    if (texId < 0) id = 1;
+  function updateTexture(self) {
+    var id = self.currentSpriteIndex;
+    if (id === 0) {
+      self.loadTexture('tile-1');
+      self.isFlagged = true;
+    } else {
+      self.loadTexture('tile-0');
+      self.isFlagged = false;
+    }
     self.currentSpriteIndex = id;
-    self.loadTexture('tile-' + id);
   }
 
   function initTextureFromMapping(self) {
@@ -75,7 +82,7 @@ Hex.prototype = Object.create(Phaser.Sprite.prototype);
 Hex.prototype.constructor = Hex;
 
 Hex.prototype.update = function() {
-  if (!this.isLocked) {
+  if (!this.isRevealed && !this.isFlagged) {
     if ((this.input.pointerOver() && !this.game.input.activePointer.withinGame) || (this.game.input.activePointer.middleButton.isDown)) {
       this.loadTexture('tile-' + this.currentSpriteIndex);
     }
@@ -92,5 +99,5 @@ Hex.prototype.reveal = function(points) {
       this.loadTexture('empty');
     }
   }
-  this.isLocked = true;
+  this.isRevealed = true;
 };
