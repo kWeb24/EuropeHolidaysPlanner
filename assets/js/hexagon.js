@@ -11,11 +11,12 @@ Hex = function (game, hexmap, hexagonOptions) {
   this.hexInfo = { countryid: 0, tiletype: 0, name: '0', riskFactor: 0 };
   this.hexMap = hexmap;
 
-  initTextureFromMapping(this);
   this.currentSpriteIndex = 0;
-  this.hasBomb = shouldHaveBomb(this);
   this.isRevealed = false;
   this.isFlagged = false;
+
+  initTextureFromMapping(this);
+  this.hasBomb = shouldHaveBomb(this);
 
   function hexHover(self) {
     if (!self.isRevealed && !self.isFlagged) {
@@ -70,6 +71,8 @@ Hex = function (game, hexmap, hexagonOptions) {
         name: 'Ocean',
         riskFactor: 0
       };
+      self.isRevealed = true;
+      self.loadTexture('empty');
     }
   }
 
