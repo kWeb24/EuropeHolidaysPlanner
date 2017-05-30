@@ -15,12 +15,19 @@ Hex = function (game, hexmap, hexagonOptions) {
   this.isRevealed = false;
   this.isFlagged = false;
 
+  this.outOfCameraBoundsKill = true;
+  this.autoCull = true;
+
+  this.updatable = true;
+  this.hovered = false;
+
   initTextureFromMapping(this);
   this.hasBomb = shouldHaveBomb(this);
 
   function hexHover(self) {
     if (!self.isRevealed && !self.isFlagged) {
       self.loadTexture('tile-marker');
+      self.hovered = true;
     }
   }
 
@@ -77,6 +84,8 @@ Hex = function (game, hexmap, hexagonOptions) {
       };
       self.isRevealed = true;
       self.loadTexture('empty');
+      self.inputEnabled = false;
+      self.kill();
     }
   }
 
@@ -90,9 +99,15 @@ Hex.prototype.constructor = Hex;
 
 Hex.prototype.update = function() {
   if (!this.isRevealed && !this.isFlagged) {
-    if ((this.input.pointerOver() && !this.game.input.activePointer.withinGame) || (this.game.input.activePointer.middleButton.isDown)) {
+    if ((!this.game.input.activePointer.withinGame) || (this.game.input.activePointer.middleButton.isDown && this.hovered)) {
       this.loadTexture('tile-' + this.currentSpriteIndex);
+      this.hovered = false;
     }
+  }
+
+  if (this.inCamera && this.updatable) {
+    this.renderable = true;
+    this.visible = true;
   }
 };
 
@@ -104,6 +119,8 @@ Hex.prototype.reveal = function(points) {
       this.loadTexture('point-' + points);
     } else {
       this.loadTexture('empty');
+      this.kill();
+      this.updatable = false;
     }
   }
   this.isRevealed = true;

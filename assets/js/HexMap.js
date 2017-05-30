@@ -17,10 +17,12 @@ HexMap = function (game, config) {
 				}
 			}
 		}
+
 		self.x = (self.game.width - self.config.hexSize.width * Math.ceil(self.config.gridSize.width / 2)) / 2;
     if (self.config.gridSize.width % 2 === 0){
       self.x -= self.config.hexSize.width / 4;
     }
+    
 		self.y = (self.game.height - Math.ceil(self.config.gridSize.height / 2) * self.config.hexSize.height - Math.floor(self.config.gridSize.height / 2) * self.config.hexSize.height / 2) / 2;
     if (self.config.gridSize.height % 2 === 0){
       self.y -= self.config.hexSize.height / 8;
