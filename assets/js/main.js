@@ -30,10 +30,12 @@ window.onload = function() {
   var bgMap = null;
   var bgMapOldPos = null;
 
+  var GameState = new GameState();
+
   createPopupEvents();
 
 	function onPreload() {
-    game.load.image("map-lg", "assets/img/map-large.jpg");
+    game.load.image("map-lg", "assets/img/map-large-dark.jpg");
     game.load.image("tile-marker", "assets/img/marker.png");
     game.load.image("explosion", "assets/img/explosion.png");
     game.load.image("tile-0", "assets/img/hexagon.png");
