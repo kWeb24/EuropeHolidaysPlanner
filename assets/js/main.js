@@ -1,4 +1,6 @@
 window.onload = function() {
+  fireworks.setCanvasSize();
+  
   var canvasSize = {
     width: document.getElementById('game').getBoundingClientRect().width,
     height: document.getElementById('game').getBoundingClientRect().height
@@ -30,7 +32,7 @@ window.onload = function() {
   var bgMap = null;
   var bgMapOldPos = null;
 
-  var GameState = new GameState();
+  //var GameState = new GameState();
 
   createPopupEvents();
 
