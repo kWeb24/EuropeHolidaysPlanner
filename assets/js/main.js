@@ -30,7 +30,8 @@ window.onload = function() {
   var bgMap = null;
   var inputs = null;
 
-  //var GameState = new GameState();
+  var gameState = new GameState();
+
   createPopupEvents();
 
 	function onPreload() {
@@ -57,7 +58,7 @@ window.onload = function() {
     bgMap.x = game.world.centerX;
     bgMap.y = game.world.centerY;
 
-    hexMap = new HexMap(game, config);
+    hexMap = new HexMap(game, config, gameState);
     inputs = game.input.keyboard.createCursorKeys();
     game.world.setBounds(-564, -760, 2500, 2128);
     game.time.advancedTiming = true;

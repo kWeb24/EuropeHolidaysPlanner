@@ -117,10 +117,12 @@ Hex.prototype.reveal = function(points) {
   } else {
     if (points > 0) {
       this.loadTexture('point-' + points);
+      this.hexMap.gameState.updatePoints(points);
     } else {
       this.loadTexture('empty');
       this.kill();
       this.updatable = false;
+      this.hexMap.gameState.updatePoints(1);
     }
   }
   this.isRevealed = true;

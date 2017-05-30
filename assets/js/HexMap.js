@@ -1,8 +1,9 @@
-HexMap = function (game, config) {
+HexMap = function (game, config, gameState) {
   Phaser.Group.call(this, game);
   this.config = config;
   this.tileCheckList = [];
   this.tileCheckedList = [];
+  this.gameState = gameState;
 
   createHexMap(this);
 
@@ -22,7 +23,7 @@ HexMap = function (game, config) {
     if (self.config.gridSize.width % 2 === 0){
       self.x -= self.config.hexSize.width / 4;
     }
-    
+
 		self.y = (self.game.height - Math.ceil(self.config.gridSize.height / 2) * self.config.hexSize.height - Math.floor(self.config.gridSize.height / 2) * self.config.hexSize.height / 2) / 2;
     if (self.config.gridSize.height % 2 === 0){
       self.y -= self.config.hexSize.height / 8;
