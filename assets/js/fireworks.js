@@ -116,12 +116,12 @@ var fireworks = (function() {
     }
   });
 
-  document.addEventListener(tap, function(e) {
-    window.human = true;
-    render.play();
-    updateCoords(e);
-    animateParticules(pointerX, pointerY);
-  }, false);
+  // document.addEventListener(tap, function(e) {
+  //   window.human = true;
+  //   render.play();
+  //   updateCoords(e);
+  //   animateParticules(pointerX, pointerY);
+  // }, false);
 
   window.addEventListener('resize', setCanvasSize, false);
 

@@ -31,6 +31,8 @@ Hex = function (game, hexmap, hexagonOptions) {
       } else {
         self.hexMap.revealAdjacentTiles(self.hexIndex);
       }
+      fireworks.render.play();
+      fireworks.animateParticules(pointer.clientX, pointer.clientY);
     }
 
     if (pointer.button == 2) {
