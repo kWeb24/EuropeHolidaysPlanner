@@ -33,7 +33,7 @@ var fireworks = (function() {
     return {
       x: p.x + radius * Math.cos(angle),
       y: p.y + radius * Math.sin(angle)
-    }
+    };
   }
 
   function createParticule(x,y) {
@@ -48,7 +48,7 @@ var fireworks = (function() {
       ctx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI, true);
       ctx.fillStyle = p.color;
       ctx.fill();
-    }
+    };
     return p;
   }
 
@@ -58,7 +58,7 @@ var fireworks = (function() {
     p.y = y;
     p.color = '#FFF';
     p.radius = 0.1;
-    p.alpha = .5;
+    p.alpha = 0.5;
     p.lineWidth = 6;
     p.draw = function() {
       ctx.globalAlpha = p.alpha;
@@ -68,7 +68,7 @@ var fireworks = (function() {
       ctx.strokeStyle = p.color;
       ctx.stroke();
       ctx.globalAlpha = 1;
-    }
+    };
     return p;
   }
 
@@ -129,6 +129,6 @@ var fireworks = (function() {
     render: render,
     setCanvasSize: setCanvasSize,
     animateParticules: animateParticules
-  }
+  };
 
 })();
