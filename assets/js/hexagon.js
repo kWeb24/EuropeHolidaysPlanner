@@ -19,6 +19,7 @@ Hex = function (game, hexmap, hexagonOptions) {
   this.autoCull = true;
 
   this.updatable = true;
+  this.hovered = false;
 
   initTextureFromMapping(this);
   this.hasBomb = shouldHaveBomb(this);
@@ -26,6 +27,7 @@ Hex = function (game, hexmap, hexagonOptions) {
   function hexHover(self) {
     if (!self.isRevealed && !self.isFlagged) {
       self.loadTexture('tile-marker');
+      self.hovered = true;
     }
   }
 
@@ -97,8 +99,9 @@ Hex.prototype.constructor = Hex;
 
 Hex.prototype.update = function() {
   if (!this.isRevealed && !this.isFlagged) {
-    if ((!this.game.input.activePointer.withinGame) || (this.game.input.activePointer.middleButton.isDown)) {
+    if ((!this.game.input.activePointer.withinGame) || (this.game.input.activePointer.middleButton.isDown && this.hovered)) {
       this.loadTexture('tile-' + this.currentSpriteIndex);
+      this.hovered = false;
     }
   }
 
