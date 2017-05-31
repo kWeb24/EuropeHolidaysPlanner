@@ -99,7 +99,7 @@ Hex.prototype.constructor = Hex;
 
 Hex.prototype.update = function() {
   if (!this.isRevealed && !this.isFlagged) {
-    if ((!this.game.input.activePointer.withinGame) || (this.game.input.activePointer.middleButton.isDown && this.hovered)) {
+    if ((!this.game.input.activePointer.withinGame) || (this.game.input.activePointer.isDown && this.hovered)) {
       this.loadTexture('tile-' + this.currentSpriteIndex);
       this.hovered = false;
     }
