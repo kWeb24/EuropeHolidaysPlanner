@@ -13,9 +13,11 @@ GameState.prototype.setHexMap = function(hexMap) {
 };
 
 GameState.prototype.updatePoints = function(points) {
-  var self = this;
-  self.points += points;
-  self.updateUiCounter(self.points);
+  if (this.isPlaying) {
+    var self = this;
+    self.points += points;
+    self.updateUiCounter(self.points);
+  }
 };
 
 GameState.prototype.updateUiCounter = function(points) {
@@ -24,13 +26,17 @@ GameState.prototype.updateUiCounter = function(points) {
 };
 
 GameState.prototype.gameOver = function(country) {
-  var diedAtEl = document.getElementById('diedat');
-  diedAtEl.innerHTML = country;
-  this.pause();
-  togglePopup('loose');
+  if (this.isPlaying) {
+    this.hexMap.revealBombs();
+    var diedAtEl = document.getElementById('diedat');
+    diedAtEl.innerHTML = country;
+    //this.pause();
+    togglePopup('loose');
+  }
 };
 
 GameState.prototype.pause = function() {
+  this.isPlaying = false;
   this.game.paused = true;
   this.game.lockRender = true;
 };
@@ -41,5 +47,6 @@ GameState.prototype.reset = function() {
   this.hexMap.reset();
   this.game.paused = false;
   this.game.lockRender = false;
+  this.isPlaying = true;
   hidePopups();
 };

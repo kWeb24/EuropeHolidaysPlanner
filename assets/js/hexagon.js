@@ -129,6 +129,13 @@ Hex.prototype.reveal = function(points) {
   }
 };
 
+Hex.prototype.revealBomb = function() {
+  this.isRevealed = true;
+  if (this.hasBomb && !this.isFlagged) {
+    this.loadTexture('explosion');
+  }
+};
+
 Hex.prototype.reset = function() {
   if (this.hexInfo.tiletype !== 0) {
     this.hasBomb = (Math.floor((Math.random() * 100) + 1) <= this.hexInfo.riskFactor) ? true : false;

@@ -56,6 +56,14 @@ HexMap = function (game, config, gameState) {
 HexMap.prototype = Object.create(Phaser.Group.prototype);
 HexMap.prototype.constructor = HexMap;
 
+HexMap.prototype.revealBombs = function() {
+  this.forEach(function(tile) {
+    if (tile.hasBomb && !this.isFlagged) {
+      tile.revealBomb();
+    }
+  });
+};
+
 HexMap.prototype.reset = function() {
   this.forEach(function(tile) {
     tile.reset();
