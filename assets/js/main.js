@@ -61,12 +61,18 @@ window.onload = function() {
     gameState = new GameState(game);
     hexMap = new HexMap(game, config, gameState);
     inputs = game.input.keyboard.createCursorKeys();
-    game.world.setBounds(-564, -760, 2500, 2128);
+    var gameWidth = 2500;
+    var gameHeight = 2128;
+    var boundX = (gameWidth - game.camera.width) / -2;
+    var boundY = (gameHeight - game.camera.height) / -2;
+    game.world.setBounds(boundX, boundY, gameWidth, gameHeight);
     game.time.advancedTiming = true;
 	}
 
   function render() {
-    game.debug.text(game.time.fps, 32, 32, '#FFFFFF');
+    //game.debug.text(game.time.fps, 32, 32, '#FFFFFF');
+    //game.debug.cameraInfo(this.game.camera, 32, 52);
+    //game.debug.pointer(this.game.input.activePointer);
   }
 
   function update() {
