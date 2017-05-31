@@ -6,13 +6,11 @@ function createPopupEvents() {
 
   var statsLinkEl = document.getElementById('statsLink');
   statsLinkEl.addEventListener('click', function() {
-    var target = statsLinkEl.getAttribute("href");
     togglePopup('stats');
   }, false);
 
   var supportLinkEl = document.getElementById('supportLink');
   supportLinkEl.addEventListener('click', function() {
-    var target = supportLinkEl.getAttribute("href");
     togglePopup('support');
   }, false);
 }

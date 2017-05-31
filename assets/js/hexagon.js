@@ -10,6 +10,7 @@ Hex = function (game, hexmap, hexagonOptions) {
   this.hexSize = { width: hexagonOptions.size.width, height: hexagonOptions.size.height };
   this.hexInfo = { countryid: 0, tiletype: 0, name: '0', riskFactor: 0 };
   this.hexMap = hexmap;
+  this.game = game;
 
   this.currentSpriteIndex = 0;
   this.isRevealed = false;
@@ -115,16 +116,16 @@ Hex.prototype.reveal = function(points) {
   this.isRevealed = true;
   if (this.hasBomb) {
     this.loadTexture('explosion');
-    this.hexMap.gameState.gameOver(this.hexInfo.name);
+    this.game.gameState.gameOver(this.hexInfo.name);
   } else {
     if (points > 0) {
       this.loadTexture('point-' + points);
-      this.hexMap.gameState.updatePoints(points);
+      this.game.gameState.updatePoints(points);
     } else {
       this.loadTexture('empty');
       this.kill();
       this.updatable = false;
-      this.hexMap.gameState.updatePoints(1);
+      this.game.gameState.updatePoints(1);
     }
   }
 };
