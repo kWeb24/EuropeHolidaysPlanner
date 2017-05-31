@@ -31,7 +31,7 @@ window.onload = function() {
   var inputs = null;
 
   var gameState = null;
-
+  var soundFx = null;
   createPopupEvents();
 
 	function onPreload() {
@@ -47,6 +47,10 @@ window.onload = function() {
     game.load.image("point-5", "assets/img/point-5.png");
     game.load.image("point-6", "assets/img/point-6.png");
     game.load.image("empty", "assets/img/hexagon-empty.png");
+
+    game.load.audio('click', 'assets/audio/click.wav');
+    game.load.audio('reveal', 'assets/audio/reveal.wav');
+    game.load.audio('bomb', 'assets/audio/bomb.wav');
 	}
 
 	function onCreate() {
@@ -58,8 +62,9 @@ window.onload = function() {
     bgMap.x = game.world.centerX;
     bgMap.y = game.world.centerY;
 
+    soundFx = new SoundFx();
     gameState = new GameState(game);
-    hexMap = new HexMap(game, config, gameState);
+    hexMap = new HexMap(game, config, gameState, soundFx);
     inputs = game.input.keyboard.createCursorKeys();
     var gameWidth = 2500;
     var gameHeight = 2128;
@@ -67,6 +72,8 @@ window.onload = function() {
     var boundY = (gameHeight - game.camera.height) / -2;
     game.world.setBounds(boundX, boundY, gameWidth, gameHeight);
     game.time.advancedTiming = true;
+
+
 	}
 
   function render() {
@@ -80,6 +87,7 @@ window.onload = function() {
       dragListener();
     } else {
       if (inputs.up.isDown) {
+        click.play();
         game.camera.y -= 8;
       } else if (inputs.down.isDown) {
         game.camera.y += 8;
