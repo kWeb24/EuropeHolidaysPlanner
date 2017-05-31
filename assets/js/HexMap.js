@@ -1,12 +1,13 @@
-HexMap = function (game, config, gameState) {
+HexMap = function (game) {
   Phaser.Group.call(this, game);
-  this.config = config;
+
+  this.config = game.config;
+  this.game = game;
+
   this.tileCheckList = [];
   this.tileCheckedList = [];
-  this.gameState = gameState;
 
   createHexMap(this);
-  this.gameState.setHexMap(this);
 
   function createHexMap(self) {
     var tileId = 0;

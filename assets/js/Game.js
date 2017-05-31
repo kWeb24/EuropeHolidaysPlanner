@@ -14,7 +14,6 @@ Game = function (canvasSize, config) {
   this.bgMap = null;
   this.inputs = null;
 
-
   this.hexMap = null;
   this.gameState = null;
   this.soundFx = null;
@@ -56,8 +55,8 @@ Game = function (canvasSize, config) {
     self.bgMap.y = self.world.centerY;
 
     self.soundFx = new SoundFx(self);
+    self.hexMap = new HexMap(self);
     self.gameState = new GameState(self);
-    self.hexMap = new HexMap(self, self.config, self.gameState, self.soundFx);
   }
 
   function render() {
