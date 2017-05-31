@@ -53,7 +53,7 @@ Game = function (canvasSize, config) {
     self.bgMap.anchor.setTo(0.5);
     self.bgMap.x = self.world.centerX;
     self.bgMap.y = self.world.centerY;
-
+    
     self.soundFx = new SoundFx(self);
     self.hexMap = new HexMap(self);
     self.gameState = new GameState(self);

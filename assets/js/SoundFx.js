@@ -1,9 +1,9 @@
 SoundFx = function (game) {
   this.game = game;
 
-  this.click = game.add.sound('click');
-  this.reveal = game.add.sound('reveal');
-  this.bomb = game.add.sound('bomb');
+  this.clickSound = game.add.sound('click');
+  this.revealSound = game.add.sound('reveal');
+  this.bombSound = game.add.sound('bomb');
 
 };
 
@@ -11,13 +11,13 @@ SoundFx.prototype = Object.create(SoundFx);
 SoundFx.prototype.constructor = SoundFx;
 
 SoundFx.prototype.click = function() {
-  this.click.play();
+  this.clickSound.play();
 };
 
 SoundFx.prototype.reveal = function() {
-  this.reveal.play();
+  this.revealSound.play();
 };
 
 SoundFx.prototype.bomb = function() {
-  this.bomb.play();
+  this.bombSound.play();
 };

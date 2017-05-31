@@ -3,6 +3,7 @@ HexMap = function (game) {
 
   this.config = game.config;
   this.game = game;
+  this.sound = game.soundFx;
 
   this.tileCheckList = [];
   this.tileCheckedList = [];
@@ -58,8 +59,9 @@ HexMap.prototype = Object.create(Phaser.Group.prototype);
 HexMap.prototype.constructor = HexMap;
 
 HexMap.prototype.revealBombs = function() {
+  this.sound.bomb();
   this.forEach(function(tile) {
-    if (tile.hasBomb && !this.isFlagged) {
+    if (tile.hasBomb && !tile.isFlagged) {
       tile.revealBomb();
     }
   });
@@ -100,6 +102,8 @@ HexMap.prototype.addToChecklist = function(tiles, points) {
         self.tileCheckList.push(tile);
       }
     });
+  } else {
+    self.sound.reveal();
   }
 };
 
@@ -120,61 +124,41 @@ HexMap.prototype.updateChecklist = function(selectedTile) {
 function calcAdjecent(hex) {
   var result = null;
   if (hex.x % 2 === 0) {
-    result = calcEvenRow(hex);
+    if (hex.index % 2 === 0) {
+      result = sameParity(hex);
+    } else {
+      result = diffParity(hex);
+    }
   } else {
-    result = calcOddRow(hex);
+    if (hex.index % 2 === 0) {
+      result = diffParity(hex);
+    } else {
+      result = sameParity(hex);
+    }
   }
   return result;
 }
 
-function calcEvenRow(hex) {
-  var result = null;
-  if (hex.index % 2 === 0) {
-    //pp
-    result = [
-      hex.index - 206,
-      hex.index - 204,
-      hex.index - 2,
-      hex.index - 1,
-      hex.index + 1,
-      hex.index + 2
-    ];
-  } else {
-    //pn
-    result = [
-      hex.index - 2,
-      hex.index - 1,
-      hex.index + 1,
-      hex.index + 2,
-      hex.index + 204,
-      hex.index + 206
-    ];
-  }
+function sameParity(hex) {
+  var result = [
+    hex.index - 206,
+    hex.index - 204,
+    hex.index - 2,
+    hex.index - 1,
+    hex.index + 1,
+    hex.index + 2
+  ];
   return result;
 }
 
-function calcOddRow(hex) {
-  var result = null;
-  if (hex.index % 2 === 0) {
-    //np
-    result = [
-      hex.index - 2,
-      hex.index - 1,
-      hex.index + 1,
-      hex.index + 2,
-      hex.index + 204,
-      hex.index + 206
-    ];
-  } else {
-    //nn
-    result = [
-      hex.index - 206,
-      hex.index - 204,
-      hex.index - 2,
-      hex.index - 1,
-      hex.index + 1,
-      hex.index + 2
-    ];
-  }
+function diffParity(hex) {
+  var result = [
+    hex.index - 2,
+    hex.index - 1,
+    hex.index + 1,
+    hex.index + 2,
+    hex.index + 204,
+    hex.index + 206
+  ];
   return result;
 }
