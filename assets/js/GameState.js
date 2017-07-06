@@ -26,8 +26,14 @@ GameState.prototype.gameOver = function(country) {
     this.hexMap.revealBombs();
     var diedAtEl = document.getElementById('diedat');
     diedAtEl.innerHTML = country;
-    //this.pause();
     togglePopup('loose');
+  }
+};
+
+GameState.prototype.gameWin = function() {
+  if (this.isPlaying) {
+    this.hexMap.revealBombs();
+    togglePopup('win');
   }
 };
 

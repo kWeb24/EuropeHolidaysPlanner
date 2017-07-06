@@ -17,6 +17,7 @@ Game = function (canvasSize, config) {
   this.hexMap = null;
   this.gameState = null;
   this.soundFx = null;
+  this.countEmptyTiles = 0;
 
   function onPreload() {
     self.load.image("map-lg", "assets/img/map-large-dark.jpg");
@@ -53,7 +54,7 @@ Game = function (canvasSize, config) {
     self.bgMap.anchor.setTo(0.5);
     self.bgMap.x = self.world.centerX;
     self.bgMap.y = self.world.centerY;
-    
+
     self.soundFx = new SoundFx(self);
     self.hexMap = new HexMap(self);
     self.gameState = new GameState(self);

@@ -24,6 +24,9 @@ Hex = function (game, hexmap, hexagonOptions) {
 
   initTextureFromMapping(this);
   this.hasBomb = shouldHaveBomb(this);
+  if (!this.hasBomb && !this.isRevealed) {
+    this.game.countEmptyTiles += 1;
+  }
 
   function hexHover(self) {
     if (!self.isRevealed && !self.isFlagged) {
@@ -118,6 +121,10 @@ Hex.prototype.reveal = function(points) {
     this.loadTexture('explosion');
     this.game.gameState.gameOver(this.hexInfo.name);
   } else {
+    this.game.countEmptyTiles -= 1;
+    if (this.game.countEmptyTiles <= 0) {
+      this.game.gameState.gameWin();
+    }
     if (points > 0) {
       this.loadTexture('point-' + points);
       this.game.gameState.updatePoints(points);
