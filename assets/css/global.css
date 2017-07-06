@@ -27,7 +27,7 @@ a, a:hover { color: orange; text-decoration: none; font-family: 'Lato', sans-ser
 .app .game, .app .effects { width: 100vw; height: calc(100vh - 40px); position: absolute; top: 40px; left: 0; z-index: 4; }
 .app .effects { z-index: 5; height: 100vh; top: 0; pointer-events: none; }
 .app .game canvas, .app .effects canvas { display: block; width: 100%; height: 100%; }
-
+.app .uibar .github img { height: 24px; top: 7px; }
 .app .popups { width: 100%; height: 100%; position: absolute; left: 0; top: 0; z-index: 14; display: none; }
 .app .popups .popup { background: #333333; width: 460px; padding: 25px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 100; }
 .app .popups .popup.center { text-align: center; }
