@@ -11,6 +11,7 @@ Hex = function (game, hexmap, hexagonOptions) {
   this.hexInfo = { countryid: 0, tiletype: 0, name: '0', riskFactor: 0 };
   this.hexMap = hexmap;
   this.game = game;
+  this.sound = game.soundFx;
 
   this.currentSpriteIndex = 0;
   this.isRevealed = false;
@@ -123,6 +124,7 @@ Hex.prototype.reveal = function(points) {
   } else {
     this.game.countEmptyTiles -= 1;
     if (this.game.countEmptyTiles <= 0) {
+      this.sound.win();
       this.game.gameState.gameWin();
     }
     if (points > 0) {

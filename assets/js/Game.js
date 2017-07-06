@@ -36,6 +36,7 @@ Game = function (canvasSize, config) {
     self.load.audio('click', 'assets/audio/click.wav');
     self.load.audio('reveal', 'assets/audio/reveal.wav');
     self.load.audio('bomb', 'assets/audio/bomb.wav');
+    self.load.audio('win', 'assets/audio/win.wav');
   }
 
   function onCreate() {
