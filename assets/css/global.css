@@ -44,3 +44,11 @@ a, a:hover { color: orange; text-decoration: none; font-family: 'Lato', sans-ser
 .app .popups .popup .close img { width: 15px; }
 .app .popups .popup { display: none; }
 .app .visible { display: block!important; }
+
+.app .popups .support .donate-item { display: none; margin: 0 15px; }
+.app .popups .support .donate-item.item-visible { display: block; }
+.app .popups .support .donate-item figure { margin: 15px 0; }
+.app .popups .support .donate-item figure figcaption { margin-top: 15px; color: #7d7d7d; }
+.app .popups .support .donate-tabs ul { padding: 0; }
+.app .popups .support .donate-tabs ul li { list-style-type: none; display: inline-block; padding: 5px 15px; background: #242424; cursor: pointer; transition: 0.4s ease; }
+.app .popups .support .donate-tabs ul li:hover, .app .popups .support .donate-tabs ul li.selected { background: #ffa500; }

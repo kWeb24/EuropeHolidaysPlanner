@@ -33,5 +33,21 @@ function hidePopups() {
 
 var close = document.getElementsByClassName("close-link");
 for (var i = 0; i < close.length; i++) {
-  close[i].addEventListener('click', function() { hidePopups(); });
+  close[i].addEventListener('click', hidePopups);
+}
+
+var donateMenuItems = document.getElementsByClassName("menu-item");
+var donateItems = document.getElementsByClassName("donate-item");
+for (var i = 0; i < donateMenuItems.length; i++) {
+  donateMenuItems[i].addEventListener('click', toggleDonate);
+}
+
+function toggleDonate() {
+  var lastMenu = document.getElementsByClassName("selected");
+  var rel = this.getAttribute('rel');
+  lastMenu[0].classList.remove("selected");
+  this.classList.add('selected');
+  var visibleCards = document.getElementsByClassName("item-visible");
+  visibleCards[0].classList.remove("item-visible");
+  donateItems[rel].classList.add('item-visible');
 }
