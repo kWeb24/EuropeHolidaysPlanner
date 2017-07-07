@@ -89,7 +89,8 @@ function getStats() {
             console.warn('Get stats failed. Error: ' + msg);
         },
         onSuccess: function(msg) {
-            if (msg) console.log(msg);
+            var res = JSON.parse(msg);
+            res.forEach(updateStatBoard);
         },
         data: request,
     });
@@ -106,4 +107,11 @@ function getCompleted() {
         },
         data: request,
     });
+}
+
+function updateStatBoard(el) {
+    var country = el.country;
+    if (country == 'United Kingdom') country = 'UK';
+    if (country == 'Czech Republic') country = 'Czech-Republic';
+    document.getElementById(country).innerHTML = el.count;
 }
