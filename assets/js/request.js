@@ -102,7 +102,7 @@ function getCompleted() {
             console.warn('Get completed failed. Error: ' + msg);
         },
         onSuccess: function(msg) {
-            if (msg) console.log(msg);
+            document.getElementById('completed').innerHTML = msg;
         },
         data: request,
     });
