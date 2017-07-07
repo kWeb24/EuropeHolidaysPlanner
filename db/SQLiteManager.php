@@ -82,6 +82,10 @@ class SQLiteManager {
     return $this->pdo->lastInsertId();
   }
 
+  public function getStats() {
+    
+  }
+
 }
 
 ?>

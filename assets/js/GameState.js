@@ -3,6 +3,7 @@ GameState = function (game) {
   this.hexMap = game.hexMap;
   this.isPlaying = true;
   this.points = 0;
+  addTotal();
 };
 
 GameState.prototype = Object.create(GameState);
@@ -26,6 +27,7 @@ GameState.prototype.gameOver = function(country) {
     this.hexMap.revealBombs();
     var diedAtEl = document.getElementById('diedat');
     diedAtEl.innerHTML = country;
+    addDeaths(country);
     togglePopup('loose');
   }
 };
@@ -33,6 +35,7 @@ GameState.prototype.gameOver = function(country) {
 GameState.prototype.gameWin = function() {
   if (this.isPlaying) {
     this.hexMap.revealBombs();
+    addCompleted();
     togglePopup('win');
   }
 };

@@ -430,6 +430,7 @@
       </div>
     </div>
 
+    <script type="text/javascript" src="assets/js/request.js"></script>
     <script type="text/javascript" src="assets/js/anime.min.js"></script>
     <script type="text/javascript" src="assets/js/fireworks.js"></script>
     <script type="text/javascript" src="assets/js/phaser.min.js"></script>
