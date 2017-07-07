@@ -46,6 +46,10 @@ class SQLiteManager {
     }
   }
 
+  private function getCurrentDate() {
+    return date("Y-m-d H:i:s");
+  }
+
   public function incrementDeaths($country) {
     if (!$country) {
       die('Country code is null');
@@ -76,10 +80,6 @@ class SQLiteManager {
       ':Date' => $this->getCurrentDate(),
     ]);
     return $this->pdo->lastInsertId();
-  }
-
-  private function getCurrentDate() {
-    return date("Y-m-d H:i:s");
   }
 
 }
