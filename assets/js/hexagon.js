@@ -123,7 +123,7 @@ Hex.prototype.reveal = function(points) {
     this.game.gameState.gameOver(this.hexInfo.name);
   } else {
     this.game.countEmptyTiles -= 1;
-    if (this.game.countEmptyTiles <= 0) {
+    if (this.game.countEmptyTiles === 0) {
       this.sound.win();
       this.game.gameState.gameWin();
     }
@@ -157,5 +157,8 @@ Hex.prototype.reset = function() {
     this.renderable = true;
     this.visible = true;
     this.loadTexture('tile-0');
+    if (!this.hasBomb && !this.isRevealed) {
+      this.game.countEmptyTiles += 1;
+    }
   }
 };
