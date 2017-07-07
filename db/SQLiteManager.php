@@ -48,7 +48,7 @@ class SQLiteManager {
 
   public function incrementDeaths($country) {
     if (!$country) {
-      /* todo */
+      die('Country code is null');
     }
     $countryCode = strip_tags($country);
     $sql = 'INSERT INTO deaths(Country, Date) VALUES(:Country, :Date)';
