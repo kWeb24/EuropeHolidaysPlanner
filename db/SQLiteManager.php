@@ -18,7 +18,6 @@ class SQLiteManager {
     if (!$pdo) {
       die('Could not connect to database');
     }
-    var_dump($pdo);
     return $pdo;
   }
 
