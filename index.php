@@ -194,219 +194,221 @@
           <div class="copy">
             <h1>List of dead travelers.</h1>
             <div class="flags">
-              <figure class="ie" id="Ireland">
+              <figure class="ie">
                 <img src="assets/img/flags/al.svg" alt="" />
                 <figcaption>
-                  <span class="dead">0</span>
+                  <span class="dead" id="Ireland">0</span>
                 </figcaption>
               </figure>
-              <figure class="gb" id="UK">
+              <figure class="gb">
                 <img src="assets/img/flags/gb.svg" alt="" />
                 <figcaption>
-                  <span class="dead">0</span>
+                  <span class="dead" id="UK">0</span>
                 </figcaption>
               </figure>
-              <figure class="no" id="Norway">
+              <figure class="no">
                 <img src="assets/img/flags/no.svg" alt="" />
                 <figcaption>
-                  <span class="dead">0</span>
+                  <span class="dead" id="Norway">0</span>
                 </figcaption>
               </figure>
-              <figure class="se" id="Sweden">
+              <figure class="se">
                 <img src="assets/img/flags/se.svg" alt="" />
                 <figcaption>
-                  <span class="dead">0</span>
+                  <span class="dead" id="Sweden">0</span>
                 </figcaption>
               </figure>
-              <figure class="fi" id="Finland">
+              <figure class="fi">
                 <img src="assets/img/flags/fi.svg" alt="" />
                 <figcaption>
-                  <span class="dead">0</span>
+                  <span class="dead" id="Finland">0</span>
                 </figcaption>
               </figure>
-              <figure class="ee" id="Estonia">
+              <figure class="ee">
                 <img src="assets/img/flags/ee.svg" alt="" />
                 <figcaption>
-                  <span class="dead">0</span>
+                  <span class="dead" id="Estonia">0</span>
                 </figcaption>
               </figure>
-              <figure class="lv" id="Latvia">
+              <figure class="lv">
                 <img src="assets/img/flags/lv.svg" alt="" />
                 <figcaption>
-                  <span class="dead">0</span>
+                  <span class="dead" id="Latvia">0</span>
                 </figcaption>
               </figure>
-              <figure class="dk" id="Denmark">
+              <figure class="dk">
                 <img src="assets/img/flags/dk.svg" alt="" />
                 <figcaption>
-                  <span class="dead">0</span>
+                  <span class="dead" id="Denmark">0</span>
                 </figcaption>
               </figure>
-              <figure class="nl" id="Netherslands">
+              <figure class="nl">
                 <img src="assets/img/flags/nl.svg" alt="" />
                 <figcaption>
-                  <span class="dead">0</span>
+                  <span class="dead" id="Netherslands">0</span>
                 </figcaption>
               </figure>
-              <figure class="be" id="Belgium">
+              <figure class="be">
                 <img src="assets/img/flags/be.svg" alt="" />
                 <figcaption>
-                  <span class="dead">0</span>
+                  <span class="dead" id="Belgium">0</span>
                 </figcaption>
               </figure>
-              <figure class="fr" id="France">
+              <figure class="fr">
                 <img src="assets/img/flags/fr.svg" alt="" />
                 <figcaption>
-                  <span class="dead">0</span>
+                  <span class="dead" id="France">0</span>
                 </figcaption>
               </figure>
-              <figure class="es" id="Spain">
+              <figure class="es">
                 <img src="assets/img/flags/es.svg" alt="" />
                 <figcaption>
-                  <span class="dead">0</span>
+                  <span class="dead" id="Spain">0</span>
                 </figcaption>
               </figure>
-              <figure class="pt" id="Portugal">
+              <figure class="pt">
                 <img src="assets/img/flags/pt.svg" alt="" />
                 <figcaption>
-                  <span class="dead">0</span>
+                  <span class="dead" id="Portugal">0</span>
                 </figcaption>
               </figure>
-              <figure class="it" id="Italy">
+              <figure class="it">
                 <img src="assets/img/flags/it.svg" alt="" />
                 <figcaption>
-                  <span class="dead">0</span>
+                  <span class="dead" id="Italy">0</span>
                 </figcaption>
               </figure>
-              <figure class="gr" id="Greece">
+              <figure class="gr">
                 <img src="assets/img/flags/gr.svg" alt="" />
                 <figcaption>
-                  <span class="dead">0</span>
+                  <span class="dead" id="Greece">0</span>
                 </figcaption>
               </figure>
-              <figure class="al" id="Albania">
+              <figure class="al">
                 <img src="assets/img/flags/al.svg" alt="" />
                 <figcaption>
-                  <span class="dead">0</span>
+                  <span class="dead" id="Albania">0</span>
                 </figcaption>
               </figure>
-              <figure class="mk" id="Macedonia">
+              <figure class="mk">
                 <img src="assets/img/flags/mk.svg" alt="" />
                 <figcaption>
-                  <span class="dead">0</span>
+                  <span class="dead" id="Macedonia">0</span>
                 </figcaption>
               </figure>
-              <figure class="bg" id="Bulgaria">
+              <figure class="bg">
                 <img src="assets/img/flags/bg.svg" alt="" />
                 <figcaption>
-                  <span class="dead">0</span>
+                  <span class="dead" id="Bulgaria">0</span>
                 </figcaption>
               </figure>
-              <figure class="me" id="Montenegro">
+              <figure class="me">
                 <img src="assets/img/flags/me.svg" alt="" />
                 <figcaption>
-                  <span class="dead">0</span>
+                  <span class="dead" id="Montenegro">0</span>
                 </figcaption>
               </figure>
-              <figure class="ks" id="Kosovo">
+              <figure class="ks">
                 <img src="assets/img/flags/ks.png" alt="" />
                 <figcaption>
-                  <span class="dead">0</span>
+                  <span class="dead" id="Kosovo">0</span>
                 </figcaption>
               </figure>
-              <figure class="ba" id="Bosnia">
+              <figure class="ba">
                 <img src="assets/img/flags/ba.svg" alt="" />
                 <figcaption>
-                  <span class="dead">0</span>
+                  <span class="dead" id="Bosnia">0</span>
                 </figcaption>
               </figure>
-              <figure class="rs" id="Servia">
+              <figure class="rs">
                 <img src="assets/img/flags/rs.svg" alt="" />
                 <figcaption>
-                  <span class="dead">0</span>
+                  <span class="dead" id="Servia">0</span>
                 </figcaption>
               </figure>
-              <figure class="hr" id="Croatia">
+              <figure class="hr">
                 <img src="assets/img/flags/hr.svg" alt="" />
                 <figcaption>
-                  <span class="dead">0</span>
+                  <span class="dead" id="Croatia">0</span>
                 </figcaption>
               </figure>
-              <figure class="si" id="Slovenia">
+              <figure class="si">
                 <img src="assets/img/flags/si.svg" alt="" />
                 <figcaption>
-                  <span class="dead">0</span>
+                  <span class="dead" id="Slovenia">0</span>
                 </figcaption>
               </figure>
-              <figure class="hu" id="Hungary">
+              <figure class="hu">
                 <img src="assets/img/flags/hu.svg" alt="" />
                 <figcaption>
-                  <span class="dead">0</span>
+                  <span class="dead" id="Hungary">0</span>
                 </figcaption>
               </figure>
-              <figure class="ro" id="Romania">
+              <figure class="ro">
                 <img src="assets/img/flags/ro.svg" alt="" />
                 <figcaption>
-                  <span class="dead">0</span>
+                  <span class="dead" id="Romania">0</span>
                 </figcaption>
               </figure>
-              <figure class="ch" id="Switzerland">
+              <figure class="ch">
                 <img src="assets/img/flags/ch.svg" alt="" />
                 <figcaption>
-                  <span class="dead">0</span>
+                  <span class="dead" id="Switzerland">0</span>
                 </figcaption>
               </figure>
-              <figure class="de" id="Germany">
+              <figure class="de">
                 <img src="assets/img/flags/de.svg" alt="" />
                 <figcaption>
-                  <span class="dead">0</span>
+                  <span class="dead" id="Germany">0</span>
                 </figcaption>
               </figure>
-              <figure class="at" id="Austria">
+              <figure class="at">
                 <img src="assets/img/flags/at.svg" alt="" />
                 <figcaption>
-                  <span class="dead">0</span>
+                  <span class="dead" id="Austria">0</span>
                 </figcaption>
               </figure>
-              <figure class="md" id="Moldavia">
+              <figure class="md">
                 <img src="assets/img/flags/md.svg" alt="" />
                 <figcaption>
-                  <span class="dead">0</span>
+                  <span class="dead" id="Moldavia">0</span>
                 </figcaption>
               </figure>
-              <figure class="ua" id="Ukraine">
+              <figure class="ua">
                 <img src="assets/img/flags/ua.svg" alt="" />
                 <figcaption>
-                  <span class="dead">0</span>
+                  <span class="dead" id="Ukraine">0</span>
                 </figcaption>
               </figure>
-              <figure class="by" id="Belorussia">
+              <figure class="by">
                 <img src="assets/img/flags/by.svg" alt="" />
                 <figcaption>
-                  <span class="dead">0</span>
+                  <span class="dead" id="Belorussia">0</span>
                 </figcaption>
               </figure>
-              <figure class="cz" id="Czech Republic">
+              <figure class="cz">
                 <img src="assets/img/flags/cz.svg" alt="" />
                 <figcaption>
-                  <span class="dead">0</span>
+                  <span class="dead" id="Czech-Republic">0</span>
                 </figcaption>
               </figure>
-              <figure class="sk" id="Slovakia">
+              <figure class="sk">
                 <img src="assets/img/flags/sk.svg" alt="" />
                 <figcaption>
-                  <span class="dead">0</span>
+                  <span class="dead" id="Slovakia">0</span>
                 </figcaption>
               </figure>
-              <figure class="pl" id="Poland">
+              <figure class="pl">
                 <img src="assets/img/flags/pl.svg" alt="" />
                 <figcaption>
-                  <span class="dead">0</span>
+                  <span class="dead" id="Poland">0</span>
                 </figcaption>
               </figure>
             </div>
             <p>
-              Completed surveys: <span id="completed" class="completed">0</span>
+              Surveys started: <span id="started" class="started">0</span> |
+              Completed surveys: <span id="completed" class="completed">0</span> |
+              Total deaths: <span id="deaths" class="deaths">0</span>
             </p>
             <p>
               To learn more about terrorism look at
