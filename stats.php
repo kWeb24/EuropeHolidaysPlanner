@@ -1,7 +1,10 @@
 <?php
 
-require 'db/SQLiteManager.php';
+if($_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest') {
 
-$SQLiteManager = new SQLiteManager;
+  require 'db/SQLiteManager.php';
+  $SQLiteManager = new SQLiteManager;
+
+}
 
 ?>
