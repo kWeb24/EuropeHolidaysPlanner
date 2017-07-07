@@ -22,4 +22,6 @@ window.onload = function() {
   for (var i = 0; i < resetButton.length; i++) {
     resetButton[i].addEventListener('click', function() { game.gameState.reset(); });
   }
+
+  getStats();
 };

@@ -21,6 +21,14 @@ if($_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest') {
         $res = $SQLiteManager->incrementDeaths($request->data);
         if (!$res) echo "SQL Failed";
       break;
+      case 'stats':
+        $res = $SQLiteManager->getStats();
+        if (!$res) {
+          echo "SQL Failed";
+        } else {
+          var_dump($res);
+        }
+      break;
       default:
       break;
     }

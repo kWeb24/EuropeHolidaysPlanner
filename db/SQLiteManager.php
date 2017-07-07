@@ -83,7 +83,14 @@ class SQLiteManager {
   }
 
   public function getStats() {
-    
+    $sql = 'SELECT count(Country) as count, Country FROM deaths GROUP BY Country ORDER BY Country';
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute();
+    $res = [];
+    while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+      $res[] = array ('country' => $row['Country'], 'count' => $row['count']);
+    }
+    return $res;
   }
 
 }

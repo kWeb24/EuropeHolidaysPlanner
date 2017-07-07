@@ -81,3 +81,16 @@ function addDeaths(code) {
         data: request,
     });
 }
+
+function getStats() {
+    var request = { type: 'get', route: 'stats', data: '' };
+    ajax({
+        onError: function(msg) {
+            console.warn('Get stats failed. Error: ' + msg);
+        },
+        onSuccess: function(msg) {
+            if (msg) console.log(msg);
+        },
+        data: request,
+    });
+}
