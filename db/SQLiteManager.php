@@ -104,6 +104,17 @@ class SQLiteManager {
     return $res[0];
   }
 
+  public function getTotal() {
+    $sql = 'SELECT count(ID) as count FROM total';
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute();
+    $res = [];
+    while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+      $res[] = $row['count'];
+    }
+    return $res[0];
+  }
+
 }
 
 ?>

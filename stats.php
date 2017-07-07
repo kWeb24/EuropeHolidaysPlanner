@@ -37,7 +37,13 @@ if($_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest') {
           echo $res;
         }
       break;
-      default:
+      case 'gettotal':
+        $res = $SQLiteManager->getTotal();
+        if (!$res) {
+          echo "SQL Failed";
+        } else {
+          echo $res;
+        }
       break;
     }
   }

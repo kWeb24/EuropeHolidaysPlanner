@@ -406,7 +406,7 @@
               </figure>
             </div>
             <p>
-              Surveys started: <span id="started" class="started">0</span> |
+              Surveys started: <span id="total" class="started">0</span> |
               Completed surveys: <span id="completed" class="completed">0</span> |
               Total deaths: <span id="deaths" class="deaths">0</span>
             </p>

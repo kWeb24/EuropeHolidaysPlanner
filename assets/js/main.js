@@ -25,4 +25,5 @@ window.onload = function() {
 
   getStats();
   getCompleted();
+  getTotal();
 };

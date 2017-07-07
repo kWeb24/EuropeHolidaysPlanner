@@ -90,7 +90,15 @@ function getStats() {
         },
         onSuccess: function(msg) {
             var res = JSON.parse(msg);
-            res.forEach(updateStatBoard);
+            var total = 0;
+            res.forEach(function(el) {
+                var country = el.country;
+                if (country == 'United Kingdom') country = 'UK';
+                if (country == 'Czech Republic') country = 'Czech-Republic';
+                document.getElementById(country).innerHTML = el.count;
+                total += parseInt(el.count);
+            });
+            document.getElementById('deaths').innerHTML = total;
         },
         data: request,
     });
@@ -109,9 +117,15 @@ function getCompleted() {
     });
 }
 
-function updateStatBoard(el) {
-    var country = el.country;
-    if (country == 'United Kingdom') country = 'UK';
-    if (country == 'Czech Republic') country = 'Czech-Republic';
-    document.getElementById(country).innerHTML = el.count;
+function getTotal() {
+    var request = { type: 'get', route: 'gettotal', data: '' };
+    ajax({
+        onError: function(msg) {
+            console.warn('Get total failed. Error: ' + msg);
+        },
+        onSuccess: function(msg) {
+            document.getElementById('total').innerHTML = msg;
+        },
+        data: request,
+    });
 }
