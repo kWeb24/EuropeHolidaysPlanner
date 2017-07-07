@@ -26,7 +26,15 @@ if($_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest') {
         if (!$res) {
           echo "SQL Failed";
         } else {
-          var_dump($res);
+          echo json_encode($res);
+        }
+      break;
+      case 'getcompleted':
+        $res = $SQLiteManager->getCompleted();
+        if (!$res) {
+          echo "SQL Failed";
+        } else {
+          echo $res;
         }
       break;
       default:

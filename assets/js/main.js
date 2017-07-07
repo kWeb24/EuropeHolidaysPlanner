@@ -24,4 +24,5 @@ window.onload = function() {
   }
 
   getStats();
+  getCompleted();
 };

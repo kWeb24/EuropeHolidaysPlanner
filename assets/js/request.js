@@ -94,3 +94,16 @@ function getStats() {
         data: request,
     });
 }
+
+function getCompleted() {
+    var request = { type: 'get', route: 'getcompleted', data: '' };
+    ajax({
+        onError: function(msg) {
+            console.warn('Get completed failed. Error: ' + msg);
+        },
+        onSuccess: function(msg) {
+            if (msg) console.log(msg);
+        },
+        data: request,
+    });
+}

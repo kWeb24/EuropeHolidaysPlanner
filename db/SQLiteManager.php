@@ -93,6 +93,17 @@ class SQLiteManager {
     return $res;
   }
 
+  public function getCompleted() {
+    $sql = 'SELECT count(ID) as count FROM completed';
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute();
+    $res = [];
+    while ($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
+      $res[] = $row['count'];
+    }
+    return $res[0];
+  }
+
 }
 
 ?>
