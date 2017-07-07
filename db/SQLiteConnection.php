@@ -11,7 +11,7 @@ class SQLiteConnection {
       try {
         $this->pdo = new \PDO('sqlite:' . Config::SQLITE_FILE);
       } catch (\PDOException $e) {
-        //todo
+        die("Could not init DB Error:" + $e);
       }
     }
     return $this->pdo;

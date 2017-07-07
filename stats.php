@@ -1,13 +1,7 @@
 <?php
 
-require 'db/SQLiteConnection.php';
+require 'db/SQLiteManager.php';
 
-$conn = new SQLiteConnection;
-$pdo = $conn->connect();
-if ($pdo != null) {
-  echo 'Ok';
-} else {
-  echo "Err";
-}
+$SQLiteManager = new SQLiteManager;
 
 ?>
